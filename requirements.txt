@@ -4,3 +4,4 @@ Flask-Caching
 flask-bootstrap
 aiogram
 requests
+uwsgidecorators
