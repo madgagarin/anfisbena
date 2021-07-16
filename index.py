@@ -8,7 +8,7 @@ from flask import Flask, render_template, send_from_directory, abort, send_file,
 
 # from images import gen_thumbnails
 # from misc import cache, bot
-from uwsgidecorators import thread
+from uwsgidecorators import thread, spool
 
 from misc import db, bot as bott, dp
 from flask_bootstrap import Bootstrap
@@ -25,7 +25,7 @@ import handlers
 import keyboards
 
 
-@thread
+@spool
 def sa():
     loop = new_event_loop()
     asyncio.set_event_loop(loop)
@@ -33,9 +33,9 @@ def sa():
     loop.run_until_complete(executor.start_polling(dp, on_startup=startup, on_shutdown=shutdown, skip_updates=True))
 
 
-#@app.before_first_request
-#def bfr():
-    #sa()
+@app.before_first_request
+def bfr():
+    sa()
 
 
 # хендлер корневой страницы
