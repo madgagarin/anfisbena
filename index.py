@@ -33,7 +33,9 @@ def sa():
     loop.run_until_complete(executor.start_polling(dp, on_startup=startup, on_shutdown=shutdown, skip_updates=True))
 
 
-sa()
+@app.before_first_request
+def bfr():
+    sa()
 
 
 # хендлер корневой страницы
