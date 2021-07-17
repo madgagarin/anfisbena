@@ -2,13 +2,13 @@ import asyncio
 from asyncio import new_event_loop
 
 from aiogram.utils import executor
-from uwsgidecorators import spool, spoolforever
+from uwsgidecorators import spool, spoolforever, thread
 
 from misc import dp
 from tools import startup, shutdown
 
 
-@spoolforever
+@thread
 def sa():
     loop = new_event_loop()
     asyncio.set_event_loop(loop)
