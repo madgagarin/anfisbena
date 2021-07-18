@@ -26,8 +26,10 @@ async def echo(message: types.Message):
 # Ответ на любой текст, кроме хендлеров выше
 @dp.message_handler()
 async def echo(message: types.Message):
+    await bot.send_message(admin_id, f'От {message.chat.username} отправлено сообщение:\n{message.text}')
     user_photos = await bot.get_user_profile_photos(message.chat.id, limit=1)
-    if user_photos != 0:
+    print(user_photos)
+    if user_photos['total_count'] != 0:
         for f in user_photos['photos'][0]:
             if f['width'] < 200:
                 user_photo_id = f['file_id']
@@ -41,7 +43,7 @@ async def echo(message: types.Message):
     db.commit()
     db_cursor.close()
     await message.answer('Ok')
-    await bot.send_message(admin_id, f'От {message.chat.username} отправлено сообщение:\n{message.text}')
+
 
 
 # Ответ на любой контент, кроме того, что выше
