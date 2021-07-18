@@ -1,7 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, ReplyKeyboardRemove
 
 # Стартовые кнопки
-button_main_menu = KeyboardButton('Отправить случайное фото котика')
+button_main_menu = KeyboardButton('Статистика')
 main_kb = ReplyKeyboardMarkup(resize_keyboard=True).add(button_main_menu)
 
 # Клавиатурная кнопка назад

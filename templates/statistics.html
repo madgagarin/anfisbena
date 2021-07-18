@@ -1,0 +1,15 @@
+
+{% extends "base.html" %}
+
+{% block app_content %}
+    {{ text }}
+    <table class="table table-dark">
+    {% if ids != None %}
+        {% for user in ids %}
+            <tr>
+                <td>{{ user }}</td><td>{{ ids[user] }}</td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+    </table>
+{% endblock %}

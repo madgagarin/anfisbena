@@ -1,0 +1,20 @@
+<table class="table table-dark">
+        <tr>
+            <td width="70px">
+                <img src="/static/avatars/{{ result[1] }}.jpg " alt="{{ result[2] }}" class="rounded img-thumbnail">
+            </td>
+            <td>
+                <b><a href="https://t.me/{{ result[2] }}">{{ result[2] }}</a></b>
+                <br>
+                {% if result[4] %}
+                    <picture>
+                        <img src="{{ result[4] }}" alt="img" class="rounded img-fluid" style="width: auto; height: 195px;">
+                    </picture>
+                {% else %}
+                    <em>{{ result[3] }}</em>
+                {% endif %}
+                <br>
+                {{ result[0] }}
+            </td>
+        </tr>
+    </table>

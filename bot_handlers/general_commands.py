@@ -9,7 +9,7 @@ from misc import dp
 @dp.message_handler(commands=['start'], state='*')
 async def start_command(message: types.Message, state: FSMContext):
     await state.finish()
-    await message.answer('Привет! Напиши что-нибудь')
+    await message.answer('Привет! Напиши что-нибудь', reply_markup=main_kb)
 
 
 # Реакция на команду /help

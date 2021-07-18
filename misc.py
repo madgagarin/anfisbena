@@ -7,10 +7,10 @@ from aiogram.contrib.middlewares.logging import LoggingMiddleware  # Встро�
 
 
 # Настройка кэша
-cache = Cache(config={'CACHE_TYPE': 'UWSGICache', 'CACHE_UWSGI_NAME':'mycache', "CACHE_DEFAULT_TIMEOUT": 600})  # настройка кэширования
+cache = Cache(config={'CACHE_TYPE': 'UWSGICache', 'CACHE_UWSGI_NAME': 'mycache', "CACHE_DEFAULT_TIMEOUT": 600})  # настройка кэширования
 
 # Инициализация бота и диспетчера
-bot = Bot(token='1355733455:AAFgBVofZciOK6BYwUtE65IOV-gLJFCC2gw')
+bot = Bot(token='1936111995:AAHSr3HjrrTQCZ10GzoG-BKO6tz06gGp7GE')
 dp = Dispatcher(bot, storage=MemoryStorage())  # Указание типа хранилища состояний в оперативную память
 
 # Подключение базы данных

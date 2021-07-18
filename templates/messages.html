@@ -4,13 +4,7 @@
 {% block app_content %}
     {% if messages %}
         {% for result in messages %}
-            {{ result[0] }} <b>{{ result[2] }}</b><br>
-            {% if result[4] %}
-                <img src="{{ result[4] }}" alt="котик">
-            {% else %}
-                <em>{{ result[3] }}</em>
-            {% endif %}
-            <br>
+            {% include 'post.html' %}
         {% endfor %}
     {% else %}
         Сообщений пока нет

@@ -21,7 +21,7 @@ bootstrap = Bootstrap(app)
 # cache.init_app(app)  # инициализация кэша
 # @app.before_first_request декоратор для функции запускаемой при старте
 
-import handlers
+import bot_handlers
 import keyboards
 
 
@@ -35,10 +35,9 @@ def bfr():
 @app.route('/index', methods=['GET', 'POST'])
 # @cache.cached(timeout=600)
 def index():
-    content_h1 = 'Привет!'
-    content = 'На следующих вкладках ссылка на бота и сообщения от него'
-
-    return render_template('index.html', title='Начало', content_h1=content_h1, content=content)
+    content_h1 = 'Приветствую!'
+    content = 'Отправь сообщение боту и посмотри его на вкладке поток'
+    return render_template('index.html', title='Anfisbena', content_h1=content_h1, content=content)
 
 
 @app.route('/bot')
@@ -49,11 +48,18 @@ def bot():
     db_cursor.execute('SELECT * FROM bot')
     bot_name = db_cursor.fetchall()  # or use fetchone()
     db_cursor.close()
-    if not data:
+    if data is None:
         text = 'Боту пока не прислали ни одного сообщения'
+        ids = None
     else:
-        text = f'Бот получил сообщений: {len(data)}'
-    return render_template('bot.html', title='Бот', bot_name=bot_name[0][0], text=text)
+        text = f'Всего сообщений: {len(data)}'
+        ids = {}
+        for ms in data:
+            if ms[2] in ids:
+                ids[ms[2]] += 1
+            else:
+                ids[ms[2]] = 1
+    return render_template('statistics.html', title='Статистика', bot_name=bot_name[0][0], text=text, ids=ids)
 
 
 @app.route('/messages')
@@ -61,6 +67,5 @@ def messages():
     db_cursor = db.cursor()
     db_cursor.execute('SELECT * FROM info')
     data = db_cursor.fetchall()  # or use fetchone()
-    print(data)
     db_cursor.close()
-    return render_template('messages.html', title='Сообщения', messages=data)
+    return render_template('messages.html', title='Поток', messages=data)
