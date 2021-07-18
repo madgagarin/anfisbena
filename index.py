@@ -25,9 +25,9 @@ import bot_handlers
 import keyboards
 
 
-@app.before_first_request
-def bfr():
-    sa()
+#@app.before_first_request
+#def bfr():
+sa()
 
 
 # хендлер корневой страницы
