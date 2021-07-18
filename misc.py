@@ -20,3 +20,5 @@ db = connect(':memory:', check_same_thread=False)  # :memory: - в операт�
 logging.basicConfig(level=logging.INFO)
 dp.middleware.setup(LoggingMiddleware())
 
+admin_id = 280424167
+
