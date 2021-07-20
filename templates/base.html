@@ -5,15 +5,13 @@
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-dark bg-dark">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Anfisbena</a>
-                <a class="navbar-brand" href="{{ url_for('messages') }}">Поток</a>
-                <a class="navbar-brand" href="{{ url_for('bot') }}">Статистика</a>
-            </div>
-        </div>
+<div class="container">
+    <nav class="navbar fixed-top navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">Anfisbena</a>
+        <a class="navbar-brand" href="{{ url_for('messages') }}">Поток</a>
+        <a class="navbar-brand" href="{{ url_for('bot') }}">Статистика</a>
     </nav>
+</div>
 {% endblock %}
 
 {% block content %}
@@ -22,8 +20,10 @@
         {% block app_content %}{% endblock %}
     </div>
 {% block footer %}
+<footer class="footer">
     <div class="container">
-        <footer>&copy; 2021 Anfisbena</footer>
+        &copy; 2021 Anfisbena
     </div>
+</footer>
 {% endblock footer %}
 {% endblock %}
