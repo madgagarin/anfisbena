@@ -1,7 +1,7 @@
 uwsgi
 Flask
 Flask-Caching
-flask-bootstrap
+bootstrap-flask
 aiogram
 requests
 uwsgidecorators
