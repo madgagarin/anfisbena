@@ -9,7 +9,7 @@ from tools import startup, shutdown
 
 
 @thread
-def sa():
+def bot_start():
     loop = new_event_loop()
     asyncio.set_event_loop(loop)
     # loop.run_in_executor(executor.start_polling(dp, on_startup=startup, on_shutdown=shutdown, skip_updates=True))

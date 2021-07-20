@@ -5,12 +5,12 @@
 {% endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-dark bg-dark">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Начало</a>
-                <a class="navbar-brand" href="{{ url_for('messages') }}">Поток</a>
-                <a class="navbar-brand" href="{{ url_for('bot') }}">Статистика</a>
+                <a class="navbar-brand" href="/">Anfisbena</a>
+                <a class="navbar-link" href="{{ url_for('messages') }}">Поток</a>
+                <a class="navbar-link" href="{{ url_for('bot') }}">Статистика</a>
             </div>
         </div>
     </nav>

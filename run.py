@@ -6,7 +6,7 @@ from aiogram import executor
 
 from index import app
 from misc import dp
-from tasks import sa
+from tasks import bot_start
 from tools import shutdown, startup
 from uwsgidecorators import thread
 

@@ -12,7 +12,7 @@ from flask import Flask, render_template, send_from_directory, abort, send_file,
 from misc import db, bot as bott, dp
 from flask_bootstrap import Bootstrap
 
-from tasks import sa
+from tasks import bot_start
 from tools import startup, shutdown
 
 app = Flask(__name__)
@@ -25,14 +25,12 @@ import bot_handlers
 import keyboards
 
 
-#@app.before_first_request
-#def bfr():
-sa()
+bot_start()
 
 
 # хендлер корневой страницы
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/index', methods=['GET', 'POST'])
+@app.route('/')
+@app.route('/index')
 # @cache.cached(timeout=600)
 def index():
     content_h1 = 'Приветствую!'
