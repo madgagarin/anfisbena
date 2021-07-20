@@ -16,7 +16,7 @@ from tasks import bot_start
 from tools import startup, shutdown
 
 app = Flask(__name__)
-bootstrap = Bootstrap(app)
+Bootstrap(app)
 
 # cache.init_app(app)  # инициализация кэша
 # @app.before_first_request декоратор для функции запускаемой при старте
