@@ -10,7 +10,7 @@ from flask import Flask, render_template, send_from_directory, abort, send_file,
 # from misc import cache, bot
 
 from misc import db, bot as bott, dp
-from flask_bootstrap import Bootstrap
+from flask_bs4 import Bootstrap
 
 from tasks import bot_start
 from tools import startup, shutdown
