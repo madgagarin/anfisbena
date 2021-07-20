@@ -6,7 +6,7 @@
 
 {% block navbar %}
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-dark">
         <a class="navbar-brand" href="/">Anfisbena</a>
         <a class="navbar-brand" href="{{ url_for('messages') }}">Поток</a>
         <a class="navbar-brand" href="{{ url_for('bot') }}">Статистика</a>
@@ -19,7 +19,13 @@
         {# application content needs to be provided in the app_content block #}
         {% block app_content %}{% endblock %}
     </div>
+    {% block footer %}
     <div class="container">
-        <footer class="footer">&copy; 2021 Anfisbena</footer>
+        <footer class="footer">
+            <span class="text-muted">
+            &copy; 2021 Anfisbena
+            </span>
+        </footer>
     </div>
+    {% endblock %}
 {% endblock %}
